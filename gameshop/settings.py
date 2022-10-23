@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'products.apps.ProductsConfig',
+    'django_filters',
     'rest_framework',
     "corsheaders",
     'django.contrib.contenttypes',

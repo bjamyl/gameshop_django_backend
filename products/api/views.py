@@ -14,7 +14,7 @@ class ProductsView(generics.ListAPIView):
     def get_queryset(self):
         return Product.objects.all()
     
-#Getting a single product
+# Getting a single product
 class ProductDetail(APIView):
     def get(self,request,pk):
         try:
@@ -23,3 +23,13 @@ class ProductDetail(APIView):
             raise Http404
         serializer = ProductSerializer(product)
         return Response(serializer.data)
+    
+# class Product(generics.ListAPIView):
+#     serializer_class = ProductSerializer
+    
+#     def get_queryset(self, pk):
+#         return Product.objects.get(pk=pk)
+
+class SingleProduct(generics.RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
