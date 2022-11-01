@@ -13,6 +13,7 @@ class Product(models.Model):
     is_featured_product = models.BooleanField(default=False)
     is_best_seller = models.BooleanField(default=False)
     category = models.CharField(max_length=200,null=True)
+    product_type = models.CharField(max_length=200, null=True)
     def __str__(self):
         return self.name
     
