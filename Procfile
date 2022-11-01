@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn real_estate.wsgi
+web: python manage.py migrate && gunicorn gameshop.wsgi
