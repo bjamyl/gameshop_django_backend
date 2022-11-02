@@ -4,11 +4,15 @@ from rest_framework.views import APIView
 from products.models import Product
 from rest_framework import generics
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 
 class ProductsView(generics.ListAPIView):
     #registering the serializer
     serializer_class = ProductSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description', 'category', 'product_type']
     
     #Defining 'GET' request for all products
     def get_queryset(self):
